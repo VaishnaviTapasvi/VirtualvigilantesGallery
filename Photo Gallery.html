@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+.header{
+    padding: 20px;
+    text-align: center;
+    background-color:skyblue;
+    width:100%;
+}
+.row .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: lightslategray;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+  color: white;
+  font-size: 30px;
+  font-weight:bolder;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 0 6px 20px 0 rgb(0, 0, 0);
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  font-size: small;
+  color: white;
+  background-color:skyblue;
+  margin-top: 20px;
+}
+.fa
+    {
+      font-size: 30px;
+      width: 30px;
+      text-decoration: none;
+    }
+    .fa-phone
+    {
+      color:black;
+    }
+    .fa-envelope
+    {
+      color:black;
+    }
+    .fa-twitter
+    {
+      color: rgb(28, 150, 232);
+    }
+    .fa-whatsapp
+    {
+      color: rgb(69, 198, 85);
+    }
+    .fa-instagram
+    {
+      color: rgb(246, 1, 140);
+    }
+    .fa-linkedin
+    {
+      color: rgb(28, 150, 232);
+    }
+    .fa-pinterest-p
+    {
+      color: rgb(230, 0,35);
+    }
+    .fa-facebook-official
+    {
+      color: rgb(66, 103, 178);
+    }
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+<body>
+    <div class="header">
+        <img src="dogline.png">
+    </div>
+<br>
+<div class="row">
+  <div class="column">
+    <img src="Beagle.jpeg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Beagle BRW2.jpeg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Doberman1.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Doberman2.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="German Shepherd1.jpg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="German Shepherd3.png" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Golden Retriever CG1.jpeg" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Golden Retriever.jpg" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Labarador1.jpeg" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="labrador white2.jpeg" style="width:100%" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Pomeranian.jpg" style="width:100%" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Pomeranian2.jpg" style="width:100%" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Pug SFS.jpg" style="width:100%" onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Pug1.jpg" style="width:100%" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Rottweiler B&R.jpg" style="width:100%" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Rottweiler.jpg" style="width:100%" onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="shih tzu2.png" style="width:100%" onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Shih Tzu.jpg" style="width:100%" onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Siberian Husky B&W.jpg" style="width:100%" onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="Siberian Husky B&W1.jpeg" style="width:100%" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+  </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 20</div>
+      <img src="Beagle.jpeg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 20</div>
+      <img src="Beagle BRW2.jpeg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 20</div>
+      <img src="Doberman1.png" style="width:100%">
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 20</div>
+      <img src="Doberman2.jpg" style="width:100%">
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">5 / 20</div>
+      <img src="German Shepherd1.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">6 / 20</div>
+      <img src="German Shepherd3.png" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">7 / 20</div>
+      <img src="Golden Retriever CG1.jpeg" style="width:100%">
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">8 / 20</div>
+      <img src="Golden Retriever.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">9 / 20</div>
+      <img src="Labarador1.jpeg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">10 / 20</div>
+      <img src="labrador white2.jpeg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">11 / 20</div>
+      <img src="Pomeranian.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">12 / 20</div>
+      <img src="Pomeranian2.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">13 / 20</div>
+      <img src="Pug SFS.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">14 / 20</div>
+      <img src="Pug1.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">15 / 20</div>
+      <img src="Rottweiler B&R.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">16 / 20</div>
+      <img src="Rottweiler.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">17 / 20</div>
+      <img src="shih tzu2.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">18 / 20</div>
+      <img src="Shih Tzu.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">19 / 20</div>
+      <img src="Siberian Husky B&W.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">20 / 20</div>
+      <img src="Siberian Husky B&W1.jpeg" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+
+    <div class="column">
+      <img class="demo cursor" src="Beagle.jpeg" style="width:100%" onclick="currentSlide(1)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Beagle BRW2.jpeg" style="width:100%" onclick="currentSlide(2)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Doberman1.png" style="width:100%" onclick="currentSlide(3)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Doberman2.jpg" style="width:100%" onclick="currentSlide(4)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="German Shepherd1.jpg" style="width:100%" onclick="currentSlide(5)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="German Shepherd3.png" style="width:100%" onclick="currentSlide(6)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Golden Retriever CG1.jpeg" style="width:100%" onclick="currentSlide(7)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Golden Retriever.jpg" style="width:100%" onclick="currentSlide(8)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Labarador1.jpeg" style="width:100%" onclick="currentSlide(9)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="labrador white2.jpeg" style="width:100%" onclick="currentSlide(10)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Pomeranian.jpg" style="width:100%" onclick="currentSlide(11)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Pomeranian2.jpg" style="width:100%" onclick="currentSlide(12)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Pug SFS.jpg" style="width:100%" onclick="currentSlide(13)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Pug1.jpg" style="width:100%" onclick="currentSlide(14)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Rottweiler B&R.jpg" style="width:100%" onclick="currentSlide(15)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Rottweiler.jpg" style="width:100%" onclick="currentSlide(16)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="shih tzu2.png" style="width:100%" onclick="currentSlide(17)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Shih Tzu.jpg" style="width:100%" onclick="currentSlide(18)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Siberian Husky B&W.jpg" style="width:100%" onclick="currentSlide(19)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Siberian Husky B&W1.jpeg" style="width:100%" onclick="currentSlide(20)">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="footer">
+    <h2>Copyright <span>&copy;</span> 2023 Pawsome. All rights reserved.</h2>
+    <a class="fa fa-facebook-official"></a>
+  <a class="fa fa-instagram"></a>
+  <a class="fa fa-twitter"></a>
+  <a class="fa fa-whatsapp"></a>
+  <a class="fa fa-pinterest-p"></a>
+  <a class="fa fa-linkedin"></a>
+</div>
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
+</html>
